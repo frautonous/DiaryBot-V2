@@ -4,24 +4,26 @@ const Discord = require('discord.js')
 exports.run = (bot, msg, args) => {
     const normalTier = new Discord.MessageEmbed()
     normalTier
-        .setColor(16726994)
-        .setFooter(bot.ownersDiscordTag, 'https://i.imgur.com/91GaUEd.png')
-        .setTitle('Diary-Bot - Commands for Everyone!')
+        .setColor('#2f3136')
+        .setTimestamp()
+        .setFooter('haneul %★\ʾ 📷', 'https://media.discordapp.net/attachments/921223275688919110/921223338905468948/ezgif-4-5bc5e5a296.gif')
+        .setTitle('Jaehyun Commands - General')
     bot.commands.forEach(e => {
         if(e.help.rank == 0) {
-            normalTier.addField(`${e.help.name}`, e.help.description + '\n \n Usage \n' + e.help.usage, false)
+            normalTier.addField(`${e.help.name}`, e.help.description + '\n' + e.help.usage, false + '\n')
         }
     })
     msg.channel.send(normalTier)
 
     const diaryOwnersTier = new Discord.MessageEmbed()
     diaryOwnersTier
-        .setColor(16726994)
-        .setFooter(bot.ownersDiscordTag, 'https://i.imgur.com/91GaUEd.png')
-        .setTitle('Diary-Bot - Commands for diary owners')
+        .setColor('#2f3136')
+        .setTimestamp()
+        .setFooter('haneul %★\ʾ 📷', 'https://media.discordapp.net/attachments/921223275688919110/921223338905468948/ezgif-4-5bc5e5a296.gif')
+        .setTitle('Jaehyun Commands - Diary Owners')
     bot.commands.forEach(e => {
         if(e.help.rank == 1) {
-            diaryOwnersTier.addField(e.help.name, e.help.description + '\n \n Usage \n' + e.help.usage, false)
+            diaryOwnersTier.addField(e.help.name, e.help.description + '\n' + e.help.usage, false + '\n')
         }
     })
     msg.channel.send(diaryOwnersTier)
@@ -29,12 +31,13 @@ exports.run = (bot, msg, args) => {
     if(msg.author.id == '299709641271672832') {
         const etcTier = new Discord.MessageEmbed()
         etcTier
-            .setColor(16726994)
-            .setFooter(bot.ownersDiscordTag, 'https://i.imgur.com/91GaUEd.png')
-            .setTitle('Diary-Bot - Other')
+        .setColor('#2f3136')
+        .setTimestamp()
+        .setFooter('haneul %★\ʾ 📷', 'https://media.discordapp.net/attachments/921223275688919110/921223338905468948/ezgif-4-5bc5e5a296.gif')
+        .setTitle('Jaehyun Commands - Other')
         bot.commands.forEach(e => {
-            if(e.help.rank > 1) {
-                etcTier.addField(e.help.name, e.help.description + '\n \n Usage \n' + e.help.usage, false)
+        if(e.help.rank > 1) {
+             etcTier.addField(e.help.name, e.help.description + '\n' + e.help.usage, false + '\n')
             }
         })
         msg.channel.send(etcTier)
@@ -47,7 +50,7 @@ exports.test = (bot) => {
 
 exports.help = {
     name: 'help',
-    usage: '*diary help',
-    description: 'Lists all commands.',
+    usage: '> `j!help`',
+    description: 'lists all commands of jaehyun',
     rank: 0
 }
